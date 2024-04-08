@@ -1,10 +1,8 @@
 import styled from "@emotion/styled";
 
-export const StyledSquare = styled.div<{
-  borderRadius: number;
-  backgroundColor: string;
-  size: number;
-}>`
+import { ISquare } from "@types";
+
+export const StyledSquare = styled.div<ISquare>`
   width: ${({ size }) => `${size}px`};
   height: ${({ size }) => `${size}px`};
   background: ${({ backgroundColor }) => backgroundColor};

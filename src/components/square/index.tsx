@@ -1,8 +1,17 @@
+import { useAppSelector } from "@store/hooks";
+import { selectSquare } from "@store/reducers/square";
+
 import { StyledSquare } from "./styles";
 
 function Square(): React.ReactElement {
+  const square = useAppSelector(selectSquare);
+
   return (
-    <StyledSquare size={100} borderRadius={0} backgroundColor={"#e38e88"} />
+    <StyledSquare
+      size={square.size}
+      borderRadius={square.borderRadius}
+      backgroundColor={square.backgroundColor}
+    />
   );
 }
 

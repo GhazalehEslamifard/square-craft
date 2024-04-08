@@ -22,6 +22,9 @@
     "baseUrl": "./src",
     "paths": {
       "@components": ["components"],
+      "@store/*": ["./store/*"],
+      "@store": ["store"],
+      "@types": ["types"]
     }
   },
   "include": [
