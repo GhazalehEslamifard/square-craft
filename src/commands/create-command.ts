@@ -1,11 +1,12 @@
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 
 import { AppDispatch } from "@store";
-import { ICommand, SquareProperty } from "@types";
+import { addToHistory } from "@store/reducers/commandsHistory";
+import { CommandsEnum, ICommand, SquareProperty } from "@types";
 
 interface Props<T extends SquareProperty> {
   dispatch: AppDispatch;
-  type: ICommand<T>["type"];
+  type: CommandsEnum;
   action: ActionCreatorWithPayload<T>;
 }
 
@@ -18,6 +19,7 @@ export const createCommand = <T extends SquareProperty>({
     type,
     execute({ newValue }) {
       dispatch(action(newValue));
+      dispatch(addToHistory({ type, newValue }));
     },
     undo() {},
     redo() {},

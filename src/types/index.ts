@@ -1,12 +1,3 @@
-// Types for Square slice state
-export interface ISquare {
-  borderRadius: number;
-  backgroundColor: string;
-  size: number;
-}
-
-export type SquareProperty = ISquare[keyof ISquare];
-
 // Commands object types
 export enum CommandsEnum {
   BORDER_RADIUS = "setBorderRadius",
@@ -20,3 +11,20 @@ export interface ICommand<T> {
   undo: () => void;
   redo: () => void;
 }
+
+// Types for square slice state
+export interface ISquare {
+  borderRadius: number;
+  backgroundColor: string;
+  size: number;
+}
+
+export type SquareProperty = ISquare[keyof ISquare];
+
+// Types for commandsHistory slice state
+export type ICommandsHistory<T extends ISquare[keyof ISquare]> = {
+  [K in CommandsEnum]: {
+    history: Array<T>;
+    currentIndex: number;
+  };
+};
