@@ -24,7 +24,8 @@
       "@components": ["components"],
       "@store/*": ["./store/*"],
       "@store": ["store"],
-      "@types": ["types"]
+      "@types": ["types"],
+      "@commands": ["commands"]
     }
   },
   "include": [

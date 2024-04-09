@@ -8,6 +8,7 @@ module.exports = {
       "@store/*": ["./store/*"],
       "@store": ["store"],
       "@types": path.resolve(__dirname, "src/types"),
+      "@commands": path.resolve(__dirname, "src/commands"),
     },
   },
 };
