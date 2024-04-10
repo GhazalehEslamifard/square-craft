@@ -12,7 +12,7 @@ export interface ICommand<T> {
   redo: () => void;
 }
 
-// Types for square slice state
+// Types for Square slice state
 export interface ISquare {
   borderRadius: number;
   backgroundColor: string;

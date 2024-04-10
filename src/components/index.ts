@@ -1,3 +1,3 @@
-export { default as Square } from "./square";
-export { default as SliderNumeral } from "./slider-numeral";
-export { default as RemoteControl } from "./remote-control";
+export { default as Square } from "./Square";
+export { default as SliderNumeral } from "./SliderNumeral";
+export { default as RemoteControl } from "./RemoteControl";

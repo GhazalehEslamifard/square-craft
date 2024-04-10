@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import commandsHistoryReducer from "@store/reducers/commandsHistory";
+import commandsHistoryReducer from "@store/reducers/commands-history";
 import squareReducer from "@store/reducers/square";
 
 export const store = configureStore({

@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 
 import { store } from "@store";
 
-import Application from "./application";
+import Application from "./Application";
 import reportWebVitals from "./reportWebVitals";
 import { globalStyles } from "./styles";
 

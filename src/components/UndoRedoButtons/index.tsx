@@ -3,7 +3,7 @@ import { Button, Space } from "antd";
 import { memo } from "react";
 
 import { useAppSelector } from "@store/hooks";
-import { selectCommandsHistory } from "@store/reducers/commandsHistory";
+import { selectCommandsHistory } from "@store/reducers/commands-history";
 import { ICommand } from "@types";
 
 function UndoRedoButtons<T>({

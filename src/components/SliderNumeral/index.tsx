@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { selectSquare } from "@store/reducers/square";
 import { ISquare } from "@types";
 
-import UndoRedoButtons from "../undo-redo-buttons";
+import UndoRedoButtons from "../UndoRedoButtons";
 
 function SliderNumeral(): React.ReactElement {
   const square = useAppSelector(selectSquare);

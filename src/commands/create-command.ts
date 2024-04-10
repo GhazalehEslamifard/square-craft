@@ -6,7 +6,7 @@ import {
   redo,
   selectCommandsHistory,
   undo,
-} from "@store/reducers/commandsHistory";
+} from "@store/reducers/commands-history";
 import { CommandsEnum, ICommand, SquareProperty } from "@types";
 
 interface Props<T extends SquareProperty> {
