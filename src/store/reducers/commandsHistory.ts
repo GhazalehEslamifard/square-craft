@@ -38,11 +38,35 @@ export const commandsHistorySlice = createSlice({
         commandHistory.currentIndex++;
       }
     },
+    undo: (
+      state,
+      action: PayloadAction<{
+        type: CommandsEnum;
+      }>,
+    ) => {
+      const commandHistory = state[action.payload.type];
+
+      if (commandHistory !== undefined) {
+        commandHistory.currentIndex--;
+      }
+    },
+    redo: (
+      state,
+      action: PayloadAction<{
+        type: CommandsEnum;
+      }>,
+    ) => {
+      const commandHistory = state[action.payload.type];
+
+      if (commandHistory !== undefined) {
+        commandHistory.currentIndex++;
+      }
+    },
   },
 });
 
 export const selectCommandsHistory = (state: RootState) =>
   state.commandsHistory;
 
-export const { addToHistory } = commandsHistorySlice.actions;
+export const { addToHistory, undo, redo } = commandsHistorySlice.actions;
 export default commandsHistorySlice.reducer;

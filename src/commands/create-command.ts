@@ -1,7 +1,12 @@
 import { ActionCreatorWithPayload } from "@reduxjs/toolkit";
 
-import { AppDispatch } from "@store";
-import { addToHistory } from "@store/reducers/commandsHistory";
+import { AppDispatch, store } from "@store";
+import {
+  addToHistory,
+  redo,
+  selectCommandsHistory,
+  undo,
+} from "@store/reducers/commandsHistory";
 import { CommandsEnum, ICommand, SquareProperty } from "@types";
 
 interface Props<T extends SquareProperty> {
@@ -21,7 +26,32 @@ export const createCommand = <T extends SquareProperty>({
       dispatch(action(newValue));
       dispatch(addToHistory({ type, newValue }));
     },
-    undo() {},
-    redo() {},
+    undo() {
+      const commandsHistory = selectCommandsHistory(store.getState())[type];
+
+      if (commandsHistory !== undefined && commandsHistory.currentIndex > 0) {
+        const previousValue = commandsHistory.history[
+          commandsHistory.currentIndex - 1
+        ] as T;
+
+        dispatch(action(previousValue));
+        dispatch(undo({ type }));
+      }
+    },
+    redo() {
+      const commandsHistory = selectCommandsHistory(store.getState())[type];
+
+      if (
+        commandsHistory !== undefined &&
+        commandsHistory.history.length - 1 > commandsHistory.currentIndex
+      ) {
+        const nextValue = commandsHistory.history[
+          commandsHistory.currentIndex + 1
+        ] as T;
+
+        dispatch(action(nextValue));
+        dispatch(redo({ type }));
+      }
+    },
   };
 };
