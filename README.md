@@ -42,7 +42,7 @@ This design enables passing requests as method arguments and facilitates support
 
 ## Built with
 - ReactJS
-- Redux Toolkt
+- Redux Toolkit
 
 ## Contact
 Don't hesitate to contact me if you have any inquiries or would like to know more about Square Craft.

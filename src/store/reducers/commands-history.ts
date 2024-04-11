@@ -35,7 +35,7 @@ export const commandsHistorySlice = createSlice({
 
       if (commandHistory !== undefined) {
         commandHistory.history.push(action.payload.newValue);
-        commandHistory.currentIndex++;
+        commandHistory.currentIndex = commandHistory.history.length - 1;
       }
     },
     undo: (
